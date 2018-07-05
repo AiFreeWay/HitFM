@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ResultantTest</string>
+    <string name="no_data">Нет данных</string>
+    <string name="update">Обновить</string>
+
+    <string name="error_title">Ууупс</string>
+    <string name="error">Произошла ошибка</string>
+</resources>
