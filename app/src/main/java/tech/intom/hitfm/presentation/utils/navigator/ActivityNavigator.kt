@@ -2,7 +2,7 @@ package tech.intom.hitfm.presentation.utils.navigator
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
-import tech.intom.hitfm.presentation.screens.main.MainActivityOld
+import tech.intom.hitfm.presentation.screens.main.MainActivity
 
 /**
  * Created by root on 09.04.18.
@@ -10,6 +10,6 @@ import tech.intom.hitfm.presentation.screens.main.MainActivityOld
 object ActivityNavigator {
 
     fun showMainScreen(activity: AppCompatActivity) {
-        activity.startActivity(Intent(activity, MainActivityOld::class.java))
+        activity.startActivity(Intent(activity, MainActivity::class.java))
     }
 }

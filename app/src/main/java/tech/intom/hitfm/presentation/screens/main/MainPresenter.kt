@@ -24,7 +24,7 @@ class MainPresenter : BasePresenter<MainView>() {
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
-        mFragmentRouter.newRootScreen(FragmentFactory.CURRENCY_FRAGMENT_TAG)
+        mFragmentRouter.newRootScreen(FragmentFactory.PROGRAMS_FRAGMENT_TAG)
     }
 
     fun backNavigate() {

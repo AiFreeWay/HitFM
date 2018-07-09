@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.arellomobile.mvp.MvpAppCompatFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
+import kotlinx.android.synthetic.main.fmt_news.*
 import tech.intom.hitfm.R
 import tech.intom.hitfm.application.utils.Logger
 import tech.intom.hitfm.application.di.components.DaggerProgramsComponent
@@ -15,25 +16,26 @@ import tech.intom.hitfm.domain.models.ProgramItem
 import tech.intom.hitfm.presentation.adapters.MultyRvAdapter
 import tech.intom.hitfm.presentation.adapters.holders.CurrencyHolder
 import tech.intom.hitfm.presentation.models.Model
-import tech.intom.hitfm.presentation.screens.abstractions.CurrencyView
+import tech.intom.hitfm.presentation.screens.abstractions.ProgramsView
 import tech.intom.hitfm.presentation.screens.abstractions.FragmentChild
-import tech.intom.hitfm.presentation.screens.main.MainActivityOld
+import tech.intom.hitfm.presentation.screens.main.MainActivity
+import tech.intom.hitfm.presentation.screens.programs.ProgramsPresenter
 
 /**
  * Created by root on 16.04.18.
  */
-class NewsFragment : MvpAppCompatFragment(), CurrencyView, FragmentChild<MainActivityOld> {
+class NewsFragment : MvpAppCompatFragment(), ProgramsView, FragmentChild<MainActivity> {
 
-    @InjectPresenter
-    internal lateinit var mPresenter: ProgramsPresenter
+    //@InjectPresenter
+    //internal lateinit var mPresenter: NewsPresenter
 
     private lateinit var mAdapter: MultyRvAdapter<ProgramItem>
 
     private var mOnEmptyData = { isEmpty: Boolean ->
         if (isEmpty) {
-            fmt_currency_tv_no_data.visibility = View.VISIBLE
+            fmt_news_tv_no_data.visibility = View.VISIBLE
         } else {
-            fmt_currency_tv_no_data.visibility = View.GONE
+            fmt_news_tv_no_data.visibility = View.GONE
         }
     }
 
@@ -48,14 +50,14 @@ class NewsFragment : MvpAppCompatFragment(), CurrencyView, FragmentChild<MainAct
 
         mAdapter = MultyRvAdapter(CurrencyHolder(context!!), mOnEmptyData)
 
-        fmt_currency_rv_list.layoutManager = LinearLayoutManager(context)
-        fmt_currency_rv_list.adapter = mAdapter
+        fmt_news_rv_list.layoutManager = LinearLayoutManager(context)
+        fmt_news_rv_list.adapter = mAdapter
     }
 
     override fun onStart() {
         super.onStart()
         getParentView().setUpdateMenuItemDelegat {
-            mPresenter.getCurrency()
+            //mPresenter.getNews()
         }
     }
 
@@ -75,13 +77,13 @@ class NewsFragment : MvpAppCompatFragment(), CurrencyView, FragmentChild<MainAct
     }
 
     private fun createComponent() {
-        val component  = DaggerProgramsComponent.builder()
-                .rootComponent(getParentView().getRootComponent())
-                .currencyModule(ProgramsModule())
-                .build()
+        //val component  = DaggerProgramsComponent.builder()
+        //        .rootComponent(getParentView().getRootComponent())
+        //        .currencyModule(ProgramsModule())
+        //        .build()
 
-        component.inject(mPresenter)
+        //component.inject(mPresenter)
     }
 
-    override fun getParentView() = activity as MainActivityOld
+    override fun getParentView() = activity as MainActivity
 }

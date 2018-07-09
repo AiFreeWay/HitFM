@@ -6,7 +6,6 @@ import android.content.Context
 import android.content.Intent
 import android.text.TextUtils
 import tech.intom.hitfm.domain.models.ExceptionStoreModel
-import tech.intom.hitfm.presentation.screens.main.MainActivityOld
 import tech.intom.hitfm.data.repository.abstractions.ExceptionRepository
 import tech.intom.hitfm.application.utils.Logger
 
