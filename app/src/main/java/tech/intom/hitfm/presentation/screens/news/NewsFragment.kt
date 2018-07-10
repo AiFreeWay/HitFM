@@ -54,7 +54,7 @@ class NewsFragment : MvpAppCompatFragment(), ProgramsView, FragmentChild<MainAct
         fmt_news_rv_list.adapter = mAdapter
     }
 
-    override fun onStart() {
+    /*override fun onStart() {
         super.onStart()
         getParentView().setUpdateMenuItemDelegat {
             //mPresenter.getNews()
@@ -64,7 +64,7 @@ class NewsFragment : MvpAppCompatFragment(), ProgramsView, FragmentChild<MainAct
     override fun onStop() {
         super.onStop()
         getParentView().setUpdateMenuItemDelegat(null)
-    }
+    }*/
 
     override fun loadModel(model: Model<List<ProgramItem>>) {
         getParentView().setProgressState(model.isLoading)

@@ -8,6 +8,7 @@ import android.text.TextUtils
 import tech.intom.hitfm.domain.models.ExceptionStoreModel
 import tech.intom.hitfm.data.repository.abstractions.ExceptionRepository
 import tech.intom.hitfm.application.utils.Logger
+import tech.intom.hitfm.presentation.screens.main.MainActivity
 
 /**
  * Created by root on 10.04.18.
@@ -41,7 +42,7 @@ class ExceptionExecutor constructor(private val mRepository: ExceptionRepository
     fun restartApp() {
         val restartPendingIntent = PendingIntent.getActivity(mContext,
                 RESTART_INTENT_ID,
-                Intent(mContext, MainActivityOld::class.java),
+                Intent(mContext, MainActivity::class.java),
                 PendingIntent.FLAG_CANCEL_CURRENT)
 
         val alarmManager = mContext.getSystemService(Context.ALARM_SERVICE) as AlarmManager

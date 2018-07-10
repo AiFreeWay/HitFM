@@ -6,7 +6,7 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "tech.intom.rusradio"
+        applicationId "tech.intom.hitfm"
         minSdkVersion 15
         targetSdkVersion 28
         versionCode 1

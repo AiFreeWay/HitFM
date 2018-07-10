@@ -3,14 +3,14 @@ package tech.intom.hitfm.application.exceptions
 import java.io.PrintWriter
 import java.io.StringWriter
 import tech.intom.hitfm.application.utils.Logger
-import tech.intom.hitfm.application.RusradioApp
+import tech.intom.hitfm.application.App
 import tech.intom.hitfm.domain.executors.ExceptionExecutor
 import javax.inject.Inject
 
 /**
  * Created by root on 10.04.18.
  */
-class ExceptionHandler(private val mApplication: RusradioApp) : Thread.UncaughtExceptionHandler {
+class ExceptionHandler(private val mApplication: App) : Thread.UncaughtExceptionHandler {
 
     @Inject lateinit var mExceptionExecutor: ExceptionExecutor
 

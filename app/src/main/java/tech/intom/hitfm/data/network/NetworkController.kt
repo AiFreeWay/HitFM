@@ -17,7 +17,7 @@ import tech.intom.hitfm.data.network.responses.ProgramsResponse
 class NetworkController {
 
     private val DOMAIN = ""
-    private val API_URL = ""
+    private val API_URL = "http://test.com"
     private val mApiController: Api
 
     init {

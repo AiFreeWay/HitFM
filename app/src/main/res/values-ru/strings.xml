@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ResultantTest</string>
+    <string name="app_name">Hitfm</string>
+
     <string name="no_data">Нет данных</string>
     <string name="update">Обновить</string>
 
     <string name="error_title">Ууупс</string>
     <string name="error">Произошла ошибка</string>
+
+    <string name="title_radio">Радио</string>
+    <string name="title_programs">Программы</string>
+    <string name="title_news">Новости</string>
+    <string name="title_more">Ещё</string>
 </resources>

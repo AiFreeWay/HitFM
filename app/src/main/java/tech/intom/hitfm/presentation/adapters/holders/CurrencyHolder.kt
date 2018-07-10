@@ -23,8 +23,8 @@ class CurrencyHolder : BaseHolder<ProgramItem> {
 
     override fun bind(dataModel: ProgramItem) {
 
-        itemView.findViewById<TextView>(R.id.h_currency_tv_name).setText(dataModel.name)
-        itemView.findViewById<TextView>(R.id.h_currency_tv_volume).setText(dataModel.volume)
-        itemView.findViewById<TextView>(R.id.h_currency_tv_amount).setText(dataModel.amount)
+        itemView.findViewById<TextView>(R.id.h_news_tv_name).text = dataModel.title
+        itemView.findViewById<TextView>(R.id.h_news_tv_volume).text = dataModel.title
+        itemView.findViewById<TextView>(R.id.h_news_tv_amount).text = dataModel.title
     }
 }
