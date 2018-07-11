@@ -7,4 +7,5 @@
     <color name="lightTextColor">#afafaf</color>
     <color name="textColor">#424b54</color>
     <color name="redColor">#E64320</color>
+    <color name="red">#f60036</color>
 </resources>

@@ -8,7 +8,10 @@ import android.support.v7.app.AppCompatActivity
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
+import android.view.MenuItem
+import android.view.View
 import com.arellomobile.mvp.presenter.InjectPresenter
+import com.squareup.picasso.Callback
 import kotlinx.android.synthetic.main.ac_main.*
 import tech.intom.hitfm.R
 import tech.intom.hitfm.application.App
@@ -19,33 +22,17 @@ import tech.intom.hitfm.application.utils.Logger
 import tech.intom.hitfm.presentation.screens.abstractions.BaseActivity
 import tech.intom.hitfm.presentation.screens.abstractions.FragmentsScreen
 import tech.intom.hitfm.presentation.screens.abstractions.MainView
+import tech.intom.hitfm.presentation.utils.navigator.FragmentFactory
+import com.squareup.picasso.Picasso
+import tech.intom.hitfm.presentation.utils.CircleTransform
+import java.lang.Exception
+import tech.intom.hitfm.presentation.utils.RoundeBorderTransformer
 
-class MainActivity : BaseActivity(), MainView, FragmentsScreen {
+
+class MainActivity : BaseActivity(), MainView, FragmentsScreen, BottomNavigationView.OnNavigationItemSelectedListener {
 
     @InjectPresenter
     internal lateinit var mPresenter: MainPresenter
-
-    private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
-        when (item.itemId) {
-            R.id.navigation_radio -> {
-                //message.setText(R.string.title_home)
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_programs -> {
-                //message.setText(R.string.title_dashboard)
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_news -> {
-                //message.setText(R.string.title_notifications)
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_more -> {
-                //message.setText(R.string.title_notifications)
-                return@OnNavigationItemSelectedListener true
-            }
-        }
-        false
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,8 +41,51 @@ class MainActivity : BaseActivity(), MainView, FragmentsScreen {
         setContentView(R.layout.ac_main)
 
         createComponent()
+        ac_main_navigation.setOnNavigationItemSelectedListener(this)
 
-        ac_main_navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        //start position
+        mPresenter.putNavRecordToHistoryStack(
+                R.id.navigation_radio,
+                FragmentFactory.PROGRAMS_FRAGMENT_TAG)
+
+        Picasso.get()
+                .load("https://cdn.img.inosmi.ru/images/24126/31/241263151.jpg")
+                .error(R.drawable.splash_image)
+                .placeholder(R.drawable.splash_image)
+                .transform(CircleTransform())
+                .into(ac_main_img, object: Callback{
+                    override fun onSuccess() {
+                        RoundeBorderTransformer.transform(ac_main_img, resources)
+                    }
+
+                    override fun onError(e: Exception?) { }
+                })
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.navigation_radio -> {
+                mPresenter.openNavFragment(item.itemId, FragmentFactory.PROGRAMS_FRAGMENT_TAG)
+                return true
+            }
+            R.id.navigation_programs -> {
+                mPresenter.openNavFragment(item.itemId, FragmentFactory.PROGRAMS_FRAGMENT_TAG)
+                return true
+            }
+            R.id.navigation_news -> {
+                mPresenter.openNavFragment(item.itemId, FragmentFactory.NEWS_FRAGMENT_TAG)
+                return true
+            }
+            R.id.navigation_more -> {
+                mPresenter.openNavFragment(item.itemId, FragmentFactory.NEWS_FRAGMENT_TAG)
+                return true
+            }
+            else -> return false
+        }
+    }
+
+    override fun selectBottomNavigationTab(tabId: Int) {
+        ac_main_navigation.selectedItemId = tabId
     }
 
     override fun onBackPressed() {
@@ -63,7 +93,7 @@ class MainActivity : BaseActivity(), MainView, FragmentsScreen {
     }
 
     override fun setProgressState(state: Boolean) {
-        //ac_main_progress.visibility = if (state) View.VISIBLE else View.GONE
+        ac_main_progress.visibility = if (state) View.VISIBLE else View.GONE
     }
 
     override fun showErrorDialog(error: Throwable) {

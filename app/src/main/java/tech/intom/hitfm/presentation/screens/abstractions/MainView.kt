@@ -9,4 +9,5 @@ interface MainView : MvpView {
 
     fun setProgressState(state: Boolean)
     fun showErrorDialog(error: Throwable)
+    fun selectBottomNavigationTab(tabId: Int)
 }
