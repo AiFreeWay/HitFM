@@ -13,7 +13,7 @@ import tech.intom.hitfm.presentation.screens.programs.ProgramsPresenter
 @Component(modules = arrayOf(ProgramsModule::class), dependencies = arrayOf(RootComponent::class))
 interface ProgramsComponent {
 
-    fun provideCurrencyRepository() : ProgramsRepository
+    fun provideProgramsRepository() : ProgramsRepository
 
     fun inject(presenter: ProgramsPresenter)
 }

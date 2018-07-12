@@ -10,6 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import tech.intom.hitfm.BuildConfig
 import tech.intom.hitfm.application.utils.Logger
 import tech.intom.hitfm.data.network.responses.ProgramsResponse
+import tech.intom.hitfm.data.network.responses.RadioResponse
 
 /**
  * Created by root on 17.04.18.
@@ -46,4 +47,6 @@ class NetworkController {
     }
 
     fun getPrograms(): Observable<ProgramsResponse> = mApiController.getPrograms()
+
+    fun getRadio(): Observable<RadioResponse> = mApiController.getRadio()
 }

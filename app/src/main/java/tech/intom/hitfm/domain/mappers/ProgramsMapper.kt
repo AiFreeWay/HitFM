@@ -9,15 +9,15 @@ import tech.intom.hitfm.domain.models.ProgramItem
  */
 object ProgramsMapper {
 
-    fun mapPrograms(programResponse: ProgramsResponse): List<ProgramItem> {
+    fun mapPrograms(response: ProgramsResponse): List<ProgramItem> {
         val resultList = ArrayList<ProgramItem>()
 
-        programResponse.programs.forEach { resultList.add(mapProgramItem(it)) }
+        response.programs.forEach { resultList.add(mapProgramItem(it)) }
 
         return resultList
     }
 
-    fun mapProgramItem(programItemData: ProgramItemData): ProgramItem {
+    fun mapProgramItem(item: ProgramItemData): ProgramItem {
 
         return ProgramItem("")
     }

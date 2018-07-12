@@ -27,7 +27,7 @@ class MainPresenter : BasePresenter<MainView>() {
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
-        mFragmentRouter.newRootScreen(FragmentFactory.PROGRAMS_FRAGMENT_TAG)
+        mFragmentRouter.newRootScreen(FragmentFactory.RADIO_FRAGMENT_TAG)
     }
 
     fun putNavRecordToHistoryStack(navTabId: Int, screenKey: String) {

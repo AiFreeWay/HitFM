@@ -6,6 +6,7 @@ import tech.intom.hitfm.data.repository.abstractions.ProgramsRepository
 import tech.intom.hitfm.data.repository.abstractions.ExceptionRepository
 import tech.intom.hitfm.data.network.NetworkController
 import tech.intom.hitfm.data.preference.PreferenceStore
+import tech.intom.hitfm.data.repository.abstractions.RadioRepository
 import javax.inject.Inject
 
 /**
@@ -13,7 +14,7 @@ import javax.inject.Inject
  */
 class Repository @Inject constructor(private val mNetworkController: NetworkController,
                                      private val mPreferenceStore: PreferenceStore) :
-        ExceptionRepository, ProgramsRepository {
+        ExceptionRepository, ProgramsRepository, RadioRepository {
 
     init {
         Logger.logObjectCreating(this)
@@ -27,7 +28,11 @@ class Repository @Inject constructor(private val mNetworkController: NetworkCont
         mPreferenceStore.putException(exceptionsModel)
     }
 
-    //CurrencyData Repository
+    //Programs Repository
 
     override fun getPrograms() = mNetworkController.getPrograms()
+
+    //Radio Repository
+
+    override fun getRadio() = mNetworkController.getRadio()
 }

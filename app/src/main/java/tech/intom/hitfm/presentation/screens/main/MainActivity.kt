@@ -65,7 +65,7 @@ class MainActivity : BaseActivity(), MainView, FragmentsScreen, BottomNavigation
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.navigation_radio -> {
-                mPresenter.openNavFragment(item.itemId, FragmentFactory.PROGRAMS_FRAGMENT_TAG)
+                mPresenter.openNavFragment(item.itemId, FragmentFactory.RADIO_FRAGMENT_TAG)
                 return true
             }
             R.id.navigation_programs -> {

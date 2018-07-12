@@ -61,6 +61,7 @@ dependencies {
     implementation "ru.terrakok.cicerone:cicerone:$cicerone"
     implementation "com.orhanobut:hawk:$hawk"
     implementation "com.squareup.picasso:picasso:$picasso"
+    implementation "com.github.crosswall:Android-Coverflow:$cover_flow"
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakcanary"
 
     testImplementation "junit:junit:$junit"
