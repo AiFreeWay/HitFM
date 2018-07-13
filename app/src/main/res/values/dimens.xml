@@ -10,4 +10,8 @@
 
     <dimen name="design_bottom_navigation_text_size" tools:override="true">10sp</dimen>
     <dimen name="design_bottom_navigation_active_text_size" tools:override="true">10sp</dimen>
+
+
+    <dimen name="cover_pager_height">413dp</dimen>
+    <dimen name="tab_height">48dp</dimen>
 </resources>
