@@ -70,7 +70,7 @@
                         android:textSize="28sp" />
 
                     <TextView
-                        android:id="@+id/v_carousel_top_circle_text"
+                        android:id="@+id/v_carousel_top_circle_btn"
                         android:layout_width="209dp"
                         android:layout_height="30dp"
                         android:layout_gravity="center"

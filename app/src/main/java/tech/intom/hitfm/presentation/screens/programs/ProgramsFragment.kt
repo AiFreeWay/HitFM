@@ -56,11 +56,11 @@ class ProgramsFragment : MvpAppCompatFragment(), ProgramsView, FragmentChild<Mai
     }
 
     override fun onOffsetChanged(appBarLayout: AppBarLayout?, verticalOffset: Int) {
-        if (Math.abs(verticalOffset) >= mParallaxHeight) {
+        /*if (Math.abs(verticalOffset) >= mParallaxHeight) {
             fmt_carousel_top_tab!!.visibility = View.VISIBLE
         } else {
             fmt_carousel_top_tab!!.visibility = View.GONE
-        }
+        }*/
     }
 
     private fun createComponent() {

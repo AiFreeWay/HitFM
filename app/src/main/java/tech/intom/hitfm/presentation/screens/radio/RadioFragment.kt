@@ -20,6 +20,7 @@ import tech.intom.hitfm.application.di.modules.RadioModule
 import tech.intom.hitfm.domain.models.RadioItem
 import tech.intom.hitfm.presentation.adapters.CorouselImagesAdapter
 import tech.intom.hitfm.presentation.adapters.CorouselFragmentAdapter
+import tech.intom.hitfm.presentation.utils.CorousePageChangeListener
 
 class RadioFragment : MvpAppCompatFragment(), RadioView, FragmentChild<MainActivity>,
         AppBarLayout.OnOffsetChangedListener {
@@ -53,11 +54,11 @@ class RadioFragment : MvpAppCompatFragment(), RadioView, FragmentChild<MainActiv
     }
 
     override fun onOffsetChanged(appBarLayout: AppBarLayout?, verticalOffset: Int) {
-        if (Math.abs(verticalOffset) >= mParallaxHeight) {
+        /*if (Math.abs(verticalOffset) >= mParallaxHeight) {
             fmt_carousel_top_tab!!.visibility = View.VISIBLE
         } else {
             fmt_carousel_top_tab!!.visibility = View.GONE
-        }
+        }*/
     }
 
     private fun createComponent() {
@@ -75,6 +76,8 @@ class RadioFragment : MvpAppCompatFragment(), RadioView, FragmentChild<MainActiv
         fmt_carousel_appbar!!.addOnOffsetChangedListener(this)
 
         val imagesViewPager = fmt_carousel_image_pager_container!!.viewPager
+
+        imagesViewPager.addOnPageChangeListener(CorousePageChangeListener(v_carousel_top_title, v_carousel_top_circle_btn))
 
         imagesViewPager.adapter = CorouselImagesAdapter(context!!)
         imagesViewPager.offscreenPageLimit = 4

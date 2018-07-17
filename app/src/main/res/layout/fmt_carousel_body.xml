@@ -9,15 +9,28 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="23dp">
+        android:paddingBottom="23dp"
+        android:paddingTop="23dp">
 
         <TextView
             android:id="@+id/fmt_carousel_body_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/proximanova_regular"
+            android:paddingLeft="23dp"
+            android:paddingRight="23dp"
+            android:lines="6"
             android:textColor="@color/textColor"
             android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/fmt_carousel_body_shewron"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_gravity="end"
+            android:src="@drawable/ic_arrow_bottom"
+            android:paddingLeft="23dp"
+            android:paddingRight="23dp" />
 
         <TextView
             android:id="@+id/fmt_carousel_body_button"
@@ -28,6 +41,8 @@
             android:background="@drawable/circle_red_background"
             android:fontFamily="@font/proximanova_bold"
             android:gravity="center"
+            android:paddingLeft="23dp"
+            android:paddingRight="23dp"
             android:textColor="@android:color/white"
             android:textSize="14sp" />
 
@@ -35,6 +50,8 @@
             android:id="@+id/fmt_carousel_body_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="50dp" />
+            android:layout_marginTop="50dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp" />
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

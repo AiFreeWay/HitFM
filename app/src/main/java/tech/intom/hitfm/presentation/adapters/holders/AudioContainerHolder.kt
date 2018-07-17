@@ -7,25 +7,25 @@ import android.widget.ImageView
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import tech.intom.hitfm.R
-import tech.intom.hitfm.domain.models.ProgramInfoItem
+import tech.intom.hitfm.domain.models.AudioContainerItem
 import tech.intom.hitfm.presentation.utils.CircleTransform
 import tech.intom.hitfm.presentation.utils.RoundeBorderTransformer
 import java.lang.Exception
 
-class GridHodler : BaseHolder<ProgramInfoItem> {
+class AudioContainerHolder : BaseHolder<AudioContainerItem> {
 
     constructor(context: Context) : super(context, null)
 
     constructor(view: View) : super(view, null)
 
-    override fun create(viewGroup: ViewGroup): BaseHolder<ProgramInfoItem> {
-        val view = viewInflater(viewGroup, R.layout.h_grid)
-        return GridHodler(view)
+    override fun create(viewGroup: ViewGroup): BaseHolder<AudioContainerItem> {
+        val view = viewInflater(viewGroup, R.layout.h_audio_container)
+        return AudioContainerHolder(view)
     }
 
-    override fun bind(dataModel: ProgramInfoItem) {
+    override fun bind(dataModel: AudioContainerItem) {
 
-        val view = itemView.findViewById<ImageView>(R.id.h_grid_image)
+        val view = itemView.findViewById<ImageView>(R.id.h_audio_container_image)
 
         Picasso.get()
                 .load("https://cdn.img.inosmi.ru/images/24126/31/241263151.jpg")
