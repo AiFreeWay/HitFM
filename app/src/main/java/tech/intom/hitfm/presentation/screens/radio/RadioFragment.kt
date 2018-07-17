@@ -1,19 +1,13 @@
 package tech.intom.hitfm.presentation.screens.radio
 
-import android.graphics.Color
 import android.os.Bundle
 import android.support.design.widget.AppBarLayout
-import android.support.v4.view.LinkagePager
-import android.support.v4.view.PagerAdapter
-import android.util.Log
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import com.arellomobile.mvp.MvpAppCompatFragment
 import com.arellomobile.mvp.presenter.InjectPresenter
-import kotlinx.android.synthetic.main.fmt_radio.*
+import kotlinx.android.synthetic.main.fmt_carousel.*
 import me.crosswall.lib.coverflow.CoverFlow
 import tech.intom.hitfm.R
 import tech.intom.hitfm.application.utils.Logger
@@ -21,67 +15,31 @@ import tech.intom.hitfm.presentation.models.Model
 import tech.intom.hitfm.presentation.screens.abstractions.FragmentChild
 import tech.intom.hitfm.presentation.screens.abstractions.RadioView
 import tech.intom.hitfm.presentation.screens.main.MainActivity
-import me.crosswall.lib.coverflow.core.LinkagePagerContainer
 import tech.intom.hitfm.application.di.components.DaggerRadioComponent
 import tech.intom.hitfm.application.di.modules.RadioModule
 import tech.intom.hitfm.domain.models.RadioItem
-import tech.intom.hitfm.presentation.adapters.CorouselAdapter
+import tech.intom.hitfm.presentation.adapters.CorouselImagesAdapter
+import tech.intom.hitfm.presentation.adapters.CorouselFragmentAdapter
 
-class RadioFragment : MvpAppCompatFragment(), RadioView, FragmentChild<MainActivity> {
+class RadioFragment : MvpAppCompatFragment(), RadioView, FragmentChild<MainActivity>,
+        AppBarLayout.OnOffsetChangedListener {
 
-    private var customPagerContainer: LinkagePagerContainer? = null
-    private var pager: LinkagePager? = null
-    private var appBarLayout: AppBarLayout? = null
-    private var parallaxHeight: Int = 0
-    private var tab: View? = null
-
-    internal inner class MyListPagerAdapter : PagerAdapter() {
-
-        override fun getCount(): Int {
-            return 5
-        }
-
-        override fun instantiateItem(container: ViewGroup, position: Int): Any {
-
-            val view = DataDemoView(context)
-            container.addView(view)
-            return view
-        }
-
-        override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
-            container.removeView(`object` as View)
-        }
-
-
-        override fun isViewFromObject(view: View, `object`: Any): Boolean {
-            return view === `object`
-        }
-    }
-
-    // 333333333333333333333333333333333333333333333333333333333333333333333333333333333333
+    private var mParallaxHeight: Int = 0
 
     @InjectPresenter
     internal lateinit var mPresenter: RadioPresenter
 
-    /*private var mOnEmptyData = { isEmpty: Boolean ->
-        if (isEmpty) {
-            fmt_radio_tv_no_data.visibility = View.VISIBLE
-        } else {
-            fmt_radio_tv_no_data.visibility = View.GONE
-        }
-    }*/
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         Logger.logObjectCreating(this)
 
-        return inflater.inflate(R.layout.fmt_radio, container, false)
+        return inflater.inflate(R.layout.fmt_carousel, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
         createComponent()
-        initViewPager()
+        initViewCarousel()
     }
 
     override fun loadModel(model: Model<List<RadioItem>>) {
@@ -94,6 +52,14 @@ class RadioFragment : MvpAppCompatFragment(), RadioView, FragmentChild<MainActiv
         }
     }
 
+    override fun onOffsetChanged(appBarLayout: AppBarLayout?, verticalOffset: Int) {
+        if (Math.abs(verticalOffset) >= mParallaxHeight) {
+            fmt_carousel_top_tab!!.visibility = View.VISIBLE
+        } else {
+            fmt_carousel_top_tab!!.visibility = View.GONE
+        }
+    }
+
     private fun createComponent() {
         val component  = DaggerRadioComponent.builder()
                 .rootComponent(getParentView().getRootComponent())
@@ -103,48 +69,28 @@ class RadioFragment : MvpAppCompatFragment(), RadioView, FragmentChild<MainActiv
         component.inject(mPresenter)
     }
 
-    private fun initViewPager() {
-        parallaxHeight = resources.getDimensionPixelSize(R.dimen.cover_pager_height) - resources.getDimensionPixelSize(R.dimen.tab_height)
+    private fun initViewCarousel() {
+        mParallaxHeight = resources.getDimensionPixelSize(R.dimen.cover_pager_height) - resources.getDimensionPixelSize(R.dimen.radio_tab_height)
 
-        Log.d("###", "parallaxHeight:$parallaxHeight")
+        fmt_carousel_appbar!!.addOnOffsetChangedListener(this)
 
-        appBarLayout = radio_appbar
+        val imagesViewPager = fmt_carousel_image_pager_container!!.viewPager
 
-        appBarLayout!!.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
-            // Log.d("###","verticalOffset: " + Math.abs(verticalOffset));
-            if (Math.abs(verticalOffset) >= parallaxHeight) {
-                tab!!.visibility = View.VISIBLE
-            } else {
-                tab!!.visibility = View.GONE
-            }
-        })
-
-        customPagerContainer = radio_pager_container
-
-        tab = radio_tab
-
-        val cover = customPagerContainer!!.viewPager
-
-        val coverAdapter = CorouselAdapter(context!!)
-        cover.adapter = coverAdapter
-        cover.offscreenPageLimit = 4
+        imagesViewPager.adapter = CorouselImagesAdapter(context!!)
+        imagesViewPager.offscreenPageLimit = 4
 
         CoverFlow.Builder()
-                .withLinkage(cover)
+                .withLinkage(imagesViewPager)
                 .pagerMargin(0f)
                 .scale(0.3f)
                 .spaceSize(0f)
                 .build()
 
-        pager = radio_pager
+        fmt_carousel_fragment_pager!!.offscreenPageLimit = 4
+        fmt_carousel_fragment_pager!!.adapter = CorouselFragmentAdapter(childFragmentManager)
 
-        val adapter = MyListPagerAdapter()
-
-        pager!!.offscreenPageLimit = 4
-        pager!!.adapter = adapter
-
-        cover.setLinkagePager(pager)
-        pager!!.setLinkagePager(cover)
+        imagesViewPager.setLinkagePager(fmt_carousel_fragment_pager)
+        fmt_carousel_fragment_pager!!.setLinkagePager(imagesViewPager)
     }
 
     override fun getParentView() = activity as MainActivity

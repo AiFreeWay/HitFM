@@ -1,22 +1,22 @@
 package tech.intom.hitfm.presentation.adapters
 
 import android.content.Context
-import android.graphics.Color
 import android.support.v4.view.PagerAdapter
-import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.ac_main.*
 import tech.intom.hitfm.R
+import tech.intom.hitfm.domain.models.RadioItem
 import tech.intom.hitfm.presentation.utils.CircleTransform
 import tech.intom.hitfm.presentation.utils.RoundeBorderTransformer
 import java.lang.Exception
+import java.util.*
 
-class CorouselAdapter(private val context: Context) : PagerAdapter() {
+class CorouselImagesAdapter(private val context: Context) : PagerAdapter() {
+
+    private var mData: List<RadioItem> = Collections.emptyList()
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         val view = ImageView(context)
@@ -31,10 +31,10 @@ class CorouselAdapter(private val context: Context) : PagerAdapter() {
                         RoundeBorderTransformer.transform(view, context.resources)
                     }
 
-                    override fun onError(e: Exception?) { }
-                })
+                    override fun onError(e: Exception?) { } })
 
         container.addView(view)
+
         return view
     }
 
@@ -43,10 +43,15 @@ class CorouselAdapter(private val context: Context) : PagerAdapter() {
     }
 
     override fun getCount(): Int {
+        //return mData.size
         return 4
     }
 
     override fun isViewFromObject(view: View, `object`: Any): Boolean {
         return view === `object`
+    }
+
+    fun loadData(data: List<RadioItem>) {
+        mData = data
     }
 }

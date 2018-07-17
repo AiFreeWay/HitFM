@@ -6,14 +6,14 @@
     android:orientation="vertical">
 
     <android.support.design.widget.AppBarLayout
-        android:id="@+id/radio_appbar"
+        android:id="@+id/fmt_carousel_appbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/cover_pager_height"
         android:fitsSystemWindows="true"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         <android.support.design.widget.CollapsingToolbarLayout
-            android:id="@+id/radio_collapsing_toolbar"
+            android:id="@+id/h_carousel_collapsing_toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
@@ -22,33 +22,66 @@
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:background="@android:color/background_light"
-                android:layout_height="@dimen/cover_pager_height">
+                android:layout_height="@dimen/cover_pager_height"
+                android:background="@color/background">
+
+                <ImageView
+                    android:id="@+id/fmt_carousel_img_background"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:background="@drawable/test_image" />
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/test_image"
-                    android:layout_gravity="top"/>
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_background"
-                    android:layout_gravity="top"/>
+                    android:layout_gravity="top"
+                    android:background="@drawable/gradient_background" />
 
                 <tech.intom.hitfm.presentation.utils.CustomLinkagePagerContainer
-                    android:id="@+id/radio_pager_container"
+                    android:id="@+id/fmt_carousel_image_pager_container"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/cover_pager_height"
                     android:background="@android:color/transparent"
+                    android:paddingTop="101dp"
                     app:layout_behavior=".behavior.ScollBehavior">
 
                     <android.support.v4.view.LinkagePager
                         android:layout_width="104dp"
                         android:layout_height="104dp"
-                        android:layout_gravity="center" />
+                        android:layout_gravity="center_horizontal" />
                 </tech.intom.hitfm.presentation.utils.CustomLinkagePagerContainer>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="274dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/v_carousel_top_title"
+                        android:layout_width="223dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:fontFamily="@font/proximanova_extrabld"
+                        android:gravity="center"
+                        android:text="awd ww"
+                        android:textColor="@android:color/white"
+                        android:textSize="28sp" />
+
+                    <TextView
+                        android:id="@+id/v_carousel_top_circle_text"
+                        android:layout_width="209dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="28dp"
+                        android:background="@drawable/circle_white_background"
+                        android:fontFamily="@font/proximanova_extrabld"
+                        android:gravity="center"
+                        android:text="123123"
+                        android:textColor="@color/red"
+                        android:textSize="12sp" />
+                </LinearLayout>
             </FrameLayout>
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
@@ -60,14 +93,14 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <View
-            android:id="@+id/radio_tab"
+            android:id="@+id/fmt_carousel_top_tab"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:background="@android:color/background_light"
+            android:layout_height="@dimen/radio_tab_height"
+            android:background="@color/background"
             android:visibility="gone" />
 
         <android.support.v4.view.LinkagePager
-            android:id="@+id/radio_pager"
+            android:id="@+id/fmt_carousel_fragment_pager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center" />

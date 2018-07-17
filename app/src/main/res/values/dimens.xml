@@ -13,5 +13,5 @@
 
 
     <dimen name="cover_pager_height">413dp</dimen>
-    <dimen name="tab_height">48dp</dimen>
+    <dimen name="radio_tab_height">56dp</dimen>
 </resources>

@@ -10,7 +10,7 @@ import tech.intom.hitfm.domain.models.ProgramItem
 /**
  * Created by root on 11.04.18.
  */
-class CurrencyHolder : BaseHolder<ProgramItem> {
+class NewsHolder : BaseHolder<ProgramItem> {
 
     constructor(context: Context) : super(context, null)
 
@@ -18,7 +18,7 @@ class CurrencyHolder : BaseHolder<ProgramItem> {
 
     override fun create(viewGroup: ViewGroup): BaseHolder<ProgramItem> {
         val view = viewInflater(viewGroup, R.layout.h_news)
-        return CurrencyHolder(view)
+        return NewsHolder(view)
     }
 
     override fun bind(dataModel: ProgramItem) {

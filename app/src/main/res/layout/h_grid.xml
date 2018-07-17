@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="159dp"
+    android:layout_height="183dp">
+
+    <ImageView
+        android:id="@+id/h_grid_image"
+        android:layout_width="141dp"
+        android:layout_height="96dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/h_grid_text"
+        android:layout_width="141dp"
+        android:layout_height="59dp"
+        android:layout_alignLeft="@+id/h_grid_image"
+        android:layout_alignStart="@+id/h_grid_image"
+        android:layout_below="@+id/h_grid_image"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/proximanova_bold"
+        android:text="Example turing machine full language lessons"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/h_grid_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/h_grid_image"
+        android:layout_alignStart="@+id/h_grid_image"
+        android:layout_below="@+id/h_grid_text"
+        android:fontFamily="@font/proximanova_regular"
+        android:text="01.06.18"
+        android:textColor="#7e7aa1"
+        android:textSize="10sp" />
+
+    <ImageView
+        android:id="@+id/h_grid_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_player_grey" />
+</RelativeLayout>
