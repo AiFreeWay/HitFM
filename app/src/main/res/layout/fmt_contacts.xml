@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="vertical"
+        android:paddingBottom="24dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:paddingTop="80dp">
+
+        <TextView
+            android:id="@+id/fmt_contacts_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:fontFamily="@font/proximanova_bold"
+            android:text="Контакты"
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/fmt_contacts_iv_efir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/fmt_contacts_title"
+            android:layout_alignStart="@+id/fmt_contacts_title"
+            android:layout_below="@+id/fmt_contacts_title"
+            android:layout_marginTop="34dp"
+            android:src="@drawable/ic_frequency" />
+
+        <TextView
+            android:id="@+id/fmt_contacts_tv_efir_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/fmt_contacts_iv_efir"
+            android:layout_marginLeft="24dp"
+            android:layout_toEndOf="@+id/fmt_contacts_iv_efir"
+            android:layout_toRightOf="@+id/fmt_contacts_iv_efir"
+            android:fontFamily="@font/proximanova_regular"
+            android:text="Прямой эфир"
+            android:textColor="@color/colorPrimary"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/fmt_contacts_efir_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/fmt_contacts_iv_efir"
+            android:layout_alignLeft="@+id/fmt_contacts_tv_efir_title"
+            android:layout_alignStart="@+id/fmt_contacts_tv_efir_title"
+            android:fontFamily="@font/proximanova_bold"
+            android:text="8 (495) 232 10 74"
+            android:textColor="@color/colorPrimary"
+            android:textSize="17sp" />
+
+        <ImageView
+            android:id="@+id/fmt_contacts_iv_news"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/fmt_contacts_iv_efir"
+            android:layout_alignStart="@+id/fmt_contacts_iv_efir"
+            android:layout_below="@+id/fmt_contacts_iv_efir"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/ic_news_and_press" />
+
+        <TextView
+            android:id="@+id/fmt_contacts_tv_news_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/fmt_contacts_iv_news"
+            android:layout_marginLeft="24dp"
+            android:layout_toEndOf="@+id/fmt_contacts_iv_news"
+            android:layout_toRightOf="@+id/fmt_contacts_iv_news"
+            android:fontFamily="@font/proximanova_regular"
+            android:text="Новости и пресс-релизы"
+            android:textColor="@color/colorPrimary"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/fmt_contacts_news_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/fmt_contacts_iv_news"
+            android:layout_alignLeft="@+id/fmt_contacts_tv_news_title"
+            android:layout_alignStart="@+id/fmt_contacts_tv_news_title"
+            android:fontFamily="@font/proximanova_bold"
+            android:text="news@rr.ru"
+            android:textColor="@color/colorPrimary"
+            android:textSize="17sp" />
+
+        <ImageView
+            android:id="@+id/fmt_contacts_iv_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/fmt_contacts_iv_news"
+            android:layout_alignStart="@+id/fmt_contacts_iv_news"
+            android:layout_below="@+id/fmt_contacts_iv_news"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/ic_address" />
+
+        <TextView
+            android:id="@+id/fmt_contacts_tv_address_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/fmt_contacts_iv_address"
+            android:layout_marginLeft="24dp"
+            android:layout_toEndOf="@+id/fmt_contacts_iv_address"
+            android:layout_toRightOf="@+id/fmt_contacts_iv_address"
+            android:fontFamily="@font/proximanova_regular"
+            android:text="Адрес"
+            android:textColor="@color/colorPrimary"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/fmt_contacts_address_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/fmt_contacts_tv_efir_title"
+            android:layout_alignStart="@+id/fmt_contacts_tv_efir_title"
+            android:layout_below="@+id/fmt_contacts_tv_address_title"
+            android:fontFamily="@font/proximanova_bold"
+            android:text="123298, 3-я Хорошевская ул., д. 12"
+            android:textColor="@color/colorPrimary"
+            android:textSize="17sp" />
+
+        <ImageView
+            android:id="@+id/fmt_contacts_iv_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/fmt_contacts_iv_address"
+            android:layout_alignStart="@+id/fmt_contacts_iv_address"
+            android:layout_below="@+id/fmt_contacts_iv_address"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/ic_phone" />
+
+        <TextView
+            android:id="@+id/fmt_contacts_tv_phone_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/fmt_contacts_iv_phone"
+            android:layout_marginLeft="24dp"
+            android:layout_toEndOf="@+id/fmt_contacts_iv_phone"
+            android:layout_toRightOf="@+id/fmt_contacts_iv_phone"
+            android:fontFamily="@font/proximanova_regular"
+            android:text="Телефон"
+            android:textColor="@color/colorPrimary"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/fmt_contacts_phone_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/fmt_contacts_tv_efir_title"
+            android:layout_alignStart="@+id/fmt_contacts_tv_efir_title"
+            android:layout_below="@+id/fmt_contacts_tv_phone_title"
+            android:fontFamily="@font/proximanova_bold"
+            android:text="8 (499) 579 77 09"
+            android:textColor="@color/colorPrimary"
+            android:textSize="17sp" />
+
+        <ImageView
+            android:id="@+id/fmt_contacts_iv_mail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/fmt_contacts_iv_phone"
+            android:layout_alignStart="@+id/fmt_contacts_iv_phone"
+            android:layout_below="@+id/fmt_contacts_iv_phone"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/ic_mail" />
+
+        <TextView
+            android:id="@+id/fmt_contacts_tv_mail_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/fmt_contacts_iv_mail"
+            android:layout_marginLeft="24dp"
+            android:layout_toEndOf="@+id/fmt_contacts_iv_mail"
+            android:layout_toRightOf="@+id/fmt_contacts_iv_mail"
+            android:fontFamily="@font/proximanova_regular"
+            android:text="Тех. поддержка сайта"
+            android:textColor="@color/colorPrimary"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/fmt_contacts_mail_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/fmt_contacts_tv_efir_title"
+            android:layout_alignStart="@+id/fmt_contacts_tv_efir_title"
+            android:layout_below="@+id/fmt_contacts_tv_mail_title"
+            android:fontFamily="@font/proximanova_bold"
+            android:text="rmgsupport@gmail.com"
+            android:textColor="@color/colorPrimary"
+            android:textSize="17sp" />
+    </RelativeLayout>
+</ScrollView>
+
+
+
+
+

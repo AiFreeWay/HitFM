@@ -24,7 +24,7 @@ class ProgramsPresenter : BasePresenter<ProgramsView>() {
 
     override fun attachView(view: ProgramsView?) {
         super.attachView(view)
-        getRadio()
+        //getRadio()
     }
 
     fun getRadio() {

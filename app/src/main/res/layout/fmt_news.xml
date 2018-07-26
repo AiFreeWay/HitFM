@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background"
+    android:paddingBottom="24dp"
+    android:paddingLeft="24dp"
+    android:paddingRight="24dp"
+    android:paddingTop="80dp">
+
+    <TextView
+        android:id="@+id/fmt_news_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/proximanova_bold"
+        android:text="Новости"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="26sp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/fmt_news_list"
+        android:layout_width="328dp"
+        android:layout_gravity="center"
+        android:layout_height="match_parent" />
+</LinearLayout>
+
+
+

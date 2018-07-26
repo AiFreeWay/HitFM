@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background"
+        android:orientation="vertical"
+        android:paddingBottom="24dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:paddingTop="80dp">
+
+        <TextView
+            android:id="@+id/fmt_more_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/proximanova_bold"
+            android:text="Дополнительно"
+            android:textColor="@color/colorPrimary"
+            android:textSize="26sp" />
+
+        <TextView
+            android:id="@+id/fmt_more_frequence"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="34dp"
+            android:drawableLeft="@drawable/ic_frequency"
+            android:drawablePadding="26dp"
+            android:drawableStart="@drawable/ic_frequency"
+            android:fontFamily="@font/proximanova_bold"
+            android:gravity="center"
+            android:text="Частоты"
+            android:textColor="@color/colorPrimary"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/fmt_more_contacts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="34dp"
+            android:drawableLeft="@drawable/ic_contacts"
+            android:drawablePadding="26dp"
+            android:drawableStart="@drawable/ic_contacts"
+            android:fontFamily="@font/proximanova_bold"
+            android:gravity="center"
+            android:text="Контакты"
+            android:textColor="@color/colorPrimary"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/fmt_more_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="34dp"
+            android:drawableLeft="@drawable/ic_share"
+            android:drawablePadding="26dp"
+            android:drawableStart="@drawable/ic_share"
+            android:fontFamily="@font/proximanova_bold"
+            android:gravity="center"
+            android:text="Поделиться приложением"
+            android:textColor="@color/colorPrimary"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/fmt_more_socila_networks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="77dp"
+            android:fontFamily="@font/proximanova_bold"
+            android:text="Мы в соцсетях"
+            android:textColor="@color/colorPrimary"
+            android:textSize="26sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="37dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:src="@drawable/ic_vk" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:src="@drawable/ic_fb" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:src="@drawable/ic_twitter" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:src="@drawable/ic_instagram" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp"
+                android:src="@drawable/ic_ok" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
+
+
+

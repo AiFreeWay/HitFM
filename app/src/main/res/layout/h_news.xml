@@ -1,36 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/small_padding"
-    android:layout_marginEnd="@dimen/small_padding"
-    android:layout_marginStart="@dimen/small_padding">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="159dp"
+    android:layout_height="183dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_gravity="center"
+    android:layout_marginBottom="24dp">
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/h_audio_container_image"
+        android:layout_width="141dp"
+        android:layout_height="96dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/h_audio_container_text"
+        android:layout_width="141dp"
+        android:layout_height="59dp"
+        android:layout_alignLeft="@+id/h_audio_container_image"
+        android:layout_alignStart="@+id/h_audio_container_image"
+        android:layout_below="@+id/h_audio_container_image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/proximanova_bold"
+        android:text="The best parties in NYC this month"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/h_audio_container_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="@dimen/middle_padding">
-
-        <TextView
-            android:id="@+id/h_news_tv_name"
-            style="@style/Text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent" />
-
-        <TextView
-            android:id="@+id/h_news_tv_volume"
-            style="@style/Text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/small_padding" />
-
-        <TextView
-            android:id="@+id/h_news_tv_amount"
-            style="@style/Text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/small_padding" />
-    </LinearLayout>
-</android.support.v7.widget.CardView>
+        android:layout_alignLeft="@+id/h_audio_container_image"
+        android:layout_alignStart="@+id/h_audio_container_image"
+        android:layout_below="@+id/h_audio_container_text"
+        android:fontFamily="@font/proximanova_regular"
+        android:text="01.06.18"
+        android:textColor="#7e7aa1"
+        android:textSize="10sp" />
+</RelativeLayout>

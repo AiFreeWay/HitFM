@@ -22,7 +22,7 @@ class CorouselImagesAdapter(private val context: Context) : PagerAdapter() {
         val view = ImageView(context)
 
         Picasso.get()
-                .load("https://cdn.img.inosmi.ru/images/24126/31/241263151.jpg")
+                .load("http://xn----7sba2bifvkei7czchq.xn--p1ai/uploads/posts/2016-11/medium/1478126998_black-octopus-superfluidity.jpg")
                 .error(R.drawable.splash_image)
                 .placeholder(R.drawable.splash_image)
                 .transform(CircleTransform())

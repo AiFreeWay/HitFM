@@ -6,8 +6,10 @@
 
     <color name="background">#faf9ff</color>
     <color name="blue">#26188e</color>
+    <color name="dark_blue">#221970</color>
     <color name="lightTextColor">#afafaf</color>
     <color name="textColor">#7e7aa1</color>
     <color name="redColor">#E64320</color>
     <color name="red">#f60036</color>
+    <color name="pink">#f70f4e</color>
 </resources>

@@ -28,7 +28,7 @@ class AudioContainerHolder : BaseHolder<AudioContainerItem> {
         val view = itemView.findViewById<ImageView>(R.id.h_audio_container_image)
 
         Picasso.get()
-                .load("https://cdn.img.inosmi.ru/images/24126/31/241263151.jpg")
+                .load("https://bimru.ru/uploads/posts/2018-05/1527746244_cf2ae2e40ed603da4554829d4aaca54a.jpg")
                 .error(R.drawable.splash_image)
                 .placeholder(R.drawable.splash_image)
                 .transform(CircleTransform())

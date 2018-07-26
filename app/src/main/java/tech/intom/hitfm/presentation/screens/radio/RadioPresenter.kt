@@ -21,7 +21,7 @@ class RadioPresenter : BasePresenter<RadioView>() {
 
     override fun attachView(view: RadioView?) {
         super.attachView(view)
-        getRadio()
+        //getRadio()
     }
 
     fun getRadio() {

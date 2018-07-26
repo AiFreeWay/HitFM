@@ -3,7 +3,6 @@ package tech.intom.hitfm.presentation.adapters.holders
 import android.content.Context
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import tech.intom.hitfm.R
 import tech.intom.hitfm.domain.models.AudioItem
 

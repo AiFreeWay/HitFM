@@ -1,7 +1,6 @@
 package tech.intom.hitfm.presentation.screens.radio
 
 import android.os.Bundle
-import android.support.design.widget.AppBarLayout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,10 +19,10 @@ import tech.intom.hitfm.application.di.modules.RadioModule
 import tech.intom.hitfm.domain.models.RadioItem
 import tech.intom.hitfm.presentation.adapters.CorouselImagesAdapter
 import tech.intom.hitfm.presentation.adapters.CorouselFragmentAdapter
+import tech.intom.hitfm.presentation.models.CarouselModel
 import tech.intom.hitfm.presentation.utils.CorousePageChangeListener
 
-class RadioFragment : MvpAppCompatFragment(), RadioView, FragmentChild<MainActivity>,
-        AppBarLayout.OnOffsetChangedListener {
+class RadioFragment : MvpAppCompatFragment(), RadioView, FragmentChild<MainActivity> {
 
     private var mParallaxHeight: Int = 0
 
@@ -43,6 +42,11 @@ class RadioFragment : MvpAppCompatFragment(), RadioView, FragmentChild<MainActiv
         initViewCarousel()
     }
 
+    override fun onResume() {
+        super.onResume()
+        getParentView().showBackNavigateToolbar(false)
+    }
+
     override fun loadModel(model: Model<List<RadioItem>>) {
         getParentView().setProgressState(model.isLoading)
 
@@ -51,14 +55,6 @@ class RadioFragment : MvpAppCompatFragment(), RadioView, FragmentChild<MainActiv
         } else if (model.isError) {
             getParentView().showErrorDialog(model.error!!)
         }
-    }
-
-    override fun onOffsetChanged(appBarLayout: AppBarLayout?, verticalOffset: Int) {
-        /*if (Math.abs(verticalOffset) >= mParallaxHeight) {
-            fmt_carousel_top_tab!!.visibility = View.VISIBLE
-        } else {
-            fmt_carousel_top_tab!!.visibility = View.GONE
-        }*/
     }
 
     private fun createComponent() {
@@ -71,9 +67,7 @@ class RadioFragment : MvpAppCompatFragment(), RadioView, FragmentChild<MainActiv
     }
 
     private fun initViewCarousel() {
-        mParallaxHeight = resources.getDimensionPixelSize(R.dimen.cover_pager_height) - resources.getDimensionPixelSize(R.dimen.radio_tab_height)
-
-        fmt_carousel_appbar!!.addOnOffsetChangedListener(this)
+        mParallaxHeight = resources.getDimensionPixelSize(R.dimen.cover_pager_height)
 
         val imagesViewPager = fmt_carousel_image_pager_container!!.viewPager
 
@@ -90,7 +84,19 @@ class RadioFragment : MvpAppCompatFragment(), RadioView, FragmentChild<MainActiv
                 .build()
 
         fmt_carousel_fragment_pager!!.offscreenPageLimit = 4
-        fmt_carousel_fragment_pager!!.adapter = CorouselFragmentAdapter(childFragmentManager)
+
+        val list = ArrayList<CarouselModel>()
+
+        val model1 = CarouselModel()
+        model1.setIsHaveRadioButton(true)
+        model1.setIsHaveText(true)
+
+        list.add(model1)
+        list.add(model1)
+        list.add(model1)
+        list.add(model1)
+
+        fmt_carousel_fragment_pager!!.adapter = CorouselFragmentAdapter(childFragmentManager, list)
 
         imagesViewPager.setLinkagePager(fmt_carousel_fragment_pager)
         fmt_carousel_fragment_pager!!.setLinkagePager(imagesViewPager)

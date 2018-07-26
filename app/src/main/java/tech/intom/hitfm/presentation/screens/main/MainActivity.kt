@@ -48,8 +48,12 @@ class MainActivity : BaseActivity(), MainView, FragmentsScreen, BottomNavigation
                 R.id.navigation_radio,
                 FragmentFactory.PROGRAMS_FRAGMENT_TAG)
 
+        ac_main_ll_settings.setOnClickListener {
+            mPresenter.openFragment(FragmentFactory.SETTINGS_FRAGMENT_TAG)
+        }
+
         Picasso.get()
-                .load("https://cdn.img.inosmi.ru/images/24126/31/241263151.jpg")
+                .load("https://bimru.ru/uploads/posts/2018-05/1527746244_cf2ae2e40ed603da4554829d4aaca54a.jpg")
                 .error(R.drawable.splash_image)
                 .placeholder(R.drawable.splash_image)
                 .transform(CircleTransform())
@@ -77,7 +81,7 @@ class MainActivity : BaseActivity(), MainView, FragmentsScreen, BottomNavigation
                 return true
             }
             R.id.navigation_more -> {
-                mPresenter.openNavFragment(item.itemId, FragmentFactory.NEWS_FRAGMENT_TAG)
+                mPresenter.openNavFragment(item.itemId, FragmentFactory.MORE_FRAGMENT_TAG)
                 return true
             }
             else -> return false
@@ -104,6 +108,15 @@ class MainActivity : BaseActivity(), MainView, FragmentsScreen, BottomNavigation
                 .show()
     }
 
+    fun showBackNavigateToolbar(isShow: Boolean) {
+        if (isShow) {
+            ac_main_ll_back.setOnClickListener { onBackPressed() }
+            ac_main_ll_back.visibility = View.VISIBLE
+        } else {
+            ac_main_ll_back.setOnClickListener(null)
+            ac_main_ll_back.visibility = View.INVISIBLE
+        }
+    }
 
     private fun createComponent() {
         val component = DaggerFragmentScreenComponent.builder()
@@ -132,4 +145,5 @@ class MainActivity : BaseActivity(), MainView, FragmentsScreen, BottomNavigation
     override fun getActivity(): AppCompatActivity = this
     override fun getContainerId(): Int = R.id.ac_main_fl_fragment
     override fun getRootComponent(): RootComponent = (application as App).getRootComponent()
+    fun getPresenter(): MainPresenter = mPresenter
 }

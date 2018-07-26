@@ -1,7 +1,6 @@
 package tech.intom.hitfm.presentation.screens.programs
 
 import android.os.Bundle
-import android.support.design.widget.AppBarLayout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,16 +15,17 @@ import tech.intom.hitfm.application.utils.Logger
 import tech.intom.hitfm.domain.models.ProgramItem
 import tech.intom.hitfm.presentation.adapters.CorouselFragmentAdapter
 import tech.intom.hitfm.presentation.adapters.CorouselImagesAdapter
+import tech.intom.hitfm.presentation.models.CarouselModel
 import tech.intom.hitfm.presentation.models.Model
 import tech.intom.hitfm.presentation.screens.abstractions.FragmentChild
 import tech.intom.hitfm.presentation.screens.abstractions.ProgramsView
 import tech.intom.hitfm.presentation.screens.main.MainActivity
+import tech.intom.hitfm.presentation.utils.CorousePageChangeListener
 
 /**
  * Created by root on 16.04.18.
  */
-class ProgramsFragment : MvpAppCompatFragment(), ProgramsView, FragmentChild<MainActivity>,
-        AppBarLayout.OnOffsetChangedListener {
+class ProgramsFragment : MvpAppCompatFragment(), ProgramsView, FragmentChild<MainActivity> {
 
     private var mParallaxHeight: Int = 0
 
@@ -45,6 +45,11 @@ class ProgramsFragment : MvpAppCompatFragment(), ProgramsView, FragmentChild<Mai
         initViewCarousel()
     }
 
+    override fun onResume() {
+        super.onResume()
+        getParentView().showBackNavigateToolbar(false)
+    }
+
     override fun loadModel(model: Model<List<ProgramItem>>) {
         getParentView().setProgressState(model.isLoading)
 
@@ -53,14 +58,6 @@ class ProgramsFragment : MvpAppCompatFragment(), ProgramsView, FragmentChild<Mai
         } else if (model.isError) {
             getParentView().showErrorDialog(model.error!!)
         }
-    }
-
-    override fun onOffsetChanged(appBarLayout: AppBarLayout?, verticalOffset: Int) {
-        /*if (Math.abs(verticalOffset) >= mParallaxHeight) {
-            fmt_carousel_top_tab!!.visibility = View.VISIBLE
-        } else {
-            fmt_carousel_top_tab!!.visibility = View.GONE
-        }*/
     }
 
     private fun createComponent() {
@@ -73,11 +70,11 @@ class ProgramsFragment : MvpAppCompatFragment(), ProgramsView, FragmentChild<Mai
     }
 
     private fun initViewCarousel() {
-        mParallaxHeight = resources.getDimensionPixelSize(R.dimen.cover_pager_height) - resources.getDimensionPixelSize(R.dimen.radio_tab_height)
-
-        fmt_carousel_appbar!!.addOnOffsetChangedListener(this)
+        mParallaxHeight = resources.getDimensionPixelSize(R.dimen.cover_pager_height)
 
         val imagesViewPager = fmt_carousel_image_pager_container!!.viewPager
+
+        imagesViewPager.addOnPageChangeListener(CorousePageChangeListener(v_carousel_top_title, v_carousel_top_circle_btn))
 
         imagesViewPager.adapter = CorouselImagesAdapter(context!!)
         imagesViewPager.offscreenPageLimit = 4
@@ -90,7 +87,30 @@ class ProgramsFragment : MvpAppCompatFragment(), ProgramsView, FragmentChild<Mai
                 .build()
 
         fmt_carousel_fragment_pager!!.offscreenPageLimit = 4
-        fmt_carousel_fragment_pager!!.adapter = CorouselFragmentAdapter(childFragmentManager)
+
+        val list = ArrayList<CarouselModel>()
+
+        val model1 = CarouselModel()
+        model1.setIsHaveText(true)
+        list.add(model1)
+
+        val model2 = CarouselModel()
+        model2.setIsHaveText(true)
+        model2.setIsHaveButton(true)
+        list.add(model2)
+
+        val model3 = CarouselModel()
+        model3.setIsHaveText(true)
+        model3.setIsHaveButton(true)
+        model3.setIsHaveLsetIstView(true)
+        list.add(model3)
+
+        val model4 = CarouselModel()
+        model4.setIsHaveText(true)
+        model4.setIsHaveGridView(true)
+        list.add(model4)
+
+        fmt_carousel_fragment_pager!!.adapter = CorouselFragmentAdapter(childFragmentManager, list)
 
         imagesViewPager.setLinkagePager(fmt_carousel_fragment_pager)
         fmt_carousel_fragment_pager!!.setLinkagePager(imagesViewPager)

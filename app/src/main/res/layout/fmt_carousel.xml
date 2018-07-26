@@ -55,7 +55,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="274dp"
+                    android:layout_marginTop="254dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -65,7 +65,7 @@
                         android:layout_gravity="center_horizontal"
                         android:fontFamily="@font/proximanova_extrabld"
                         android:gravity="center"
-                        android:text="awd ww"
+                        android:text="Superfluidity"
                         android:textColor="@android:color/white"
                         android:textSize="28sp" />
 
@@ -78,7 +78,7 @@
                         android:background="@drawable/circle_white_background"
                         android:fontFamily="@font/proximanova_extrabld"
                         android:gravity="center"
-                        android:text="123123"
+                        android:text="Слушать"
                         android:textColor="@color/red"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -86,23 +86,10 @@
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
-    <LinearLayout
+    <android.support.v4.view.LinkagePager
+        android:id="@+id/fmt_carousel_fragment_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-        <View
-            android:id="@+id/fmt_carousel_top_tab"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/radio_tab_height"
-            android:background="@color/background"
-            android:visibility="gone" />
-
-        <android.support.v4.view.LinkagePager
-            android:id="@+id/fmt_carousel_fragment_pager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center" />
-    </LinearLayout>
+        android:layout_gravity="center"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 </android.support.design.widget.CoordinatorLayout>
